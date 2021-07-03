@@ -32,13 +32,15 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import CancelIcon from '@material-ui/icons/Cancel';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Paper from '@material-ui/core/Paper';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 
 
 
-
-
-
+function Alert(props) {
+      return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -85,6 +87,13 @@ const useStylespaper = makeStyles((theme) => ({
 
 
 
+
+
+
+
+
+
+
 const db = firebase.firestore();
 
 export default function Privateannouncement() {
@@ -101,6 +110,25 @@ export default function Privateannouncement() {
   const handleClose = () => {
     setOpen(false);
   };
+
+
+
+
+
+  
+
+  const [del, setDel] = useState(true);
+
+  const delHandler = () => {
+      // if agree === true, it will be set to false
+      // if agree === false, it will be set to true
+
+      setDel(!del);
+
+      // Don't miss the exclamation mark
+
+  }
+
 
 
 
@@ -200,6 +228,23 @@ export default function Privateannouncement() {
       .delete()
       .then(() => {
         //success
+delHandler()
+
+
+        
+
+
+
+
+
+      //   <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      //   <Alert onClose={handleClose} severity="warning">
+      //     Please complete the following!
+      //   </Alert>
+      // </Snackbar>
+
+      
+
       })
       .catch((err) => {
         //error
@@ -343,6 +388,7 @@ export default function Privateannouncement() {
               <Button
                 style={{ height: '250px', width: '400px', fontSize: "5vh" }}
                 id="DeleteAnn"
+                onClick={delHandler}
                 variant="contained"
                 color="secondary">
                 Delete Announcement <DeleteIcon style={{ fontSize: 100 }}
@@ -373,8 +419,10 @@ export default function Privateannouncement() {
               }
                 >
               {task.task}
-                </Typography>
-                <IconButton onClick={() => deleteTask(task.id)}>
+                </Typography>               
+                <IconButton 
+                disabled={del}
+                onClick={() => deleteTask(task.id)}>
                 <DeleteIcon />
                 </IconButton>
 
