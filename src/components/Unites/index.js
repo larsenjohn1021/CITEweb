@@ -16,24 +16,8 @@ import {
 const Unites = () => {
     return (
         <UnitesContainer id="unites">
-            <UnitesH1>Unites Organization</UnitesH1>
-            <UnitesWrapper>
-                <UnitesCard>
-                    <UnitesIcon src={Icon1}/>
-                    <UnitesH2>BSIT</UnitesH2>
-                    <UnitesP>System Developer</UnitesP>
-                </UnitesCard>
-                <UnitesCard>
-                    <UnitesIcon src={Icon2}/>
-                    <UnitesH2>BSIT</UnitesH2>
-                    <UnitesP>Computer Maintenance</UnitesP>
-                </UnitesCard>
-                <UnitesCard>
-                    <UnitesIcon src={Icon3}/>
-                    <UnitesH2>BSIT</UnitesH2>
-                    <UnitesP>System Developer</UnitesP>
-                </UnitesCard>
-            </UnitesWrapper>
+            <UnitesH1>ANNOUNCEMENTS</UnitesH1>
+            
         </UnitesContainer>
     )
 }

@@ -7,9 +7,11 @@ import Register from './pages/register'
 import firebase from "./firebase"
 import {ThemeProvider} from "@material-ui/core";
 import theme from "./theme";
+import Privatenavbar from './private/Privatenavbar';
 import Privateroute from './private/Privateroute'
 import Publicroute from './private/Publicroute'
 import Privatehome from './private/Privatehome'
+import Privateannouncement from './private/Privateannouncement'
 import { useState, useEffect } from 'react'
 
 
@@ -68,14 +70,16 @@ function App() {
         </Switch>
 
 
-        
+       
+
+        <Privateroute isAuth={values.isAuth} exact component={Privatenavbar}/>
 
         <Switch>
 
 
-
           <Privateroute path="/accounthomepage" isAuth={values.isAuth} exact component={Privatehome} />
-          
+          <Privateroute path="/announcement" isAuth={values.isAuth} exact component={Privateannouncement} />
+        
 
 
 

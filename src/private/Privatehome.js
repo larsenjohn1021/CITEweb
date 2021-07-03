@@ -1,242 +1,71 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { Button } from "@material-ui/core";
-import firebase from "../firebase"
-
-
-
-const useStyles = makeStyles({
-
-
-    maincard: {
-        minWidth: 275,
-        padding: 4,
-        marginTop: 420,
-        height: 200,
-
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
-
-export default function Privatehome() {
-    const classes = useStyles();
-    //   const bull = <span className={classes.bullet}>•</span>;
-
-
-
-    const signOut = () => {
-
-
-
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-            alert("signing out")
-
-
-        }).catch((error) => {
-            // An error happened.
-            alert("signing out error")
-        });
-    };
-
-
-
-    return (
-
-
-
-
-
-
-
-
-
-
-        <Card className={classes.maincard}>
-            <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    your account
-                </Typography>
-            </CardContent>
-
-
-
-            <Button
-
-
-                onClick={signOut}
-                variant="contained"
-                color="secondary"
-                fullWidth>
-                signOut
-            </Button>
-        </Card>
-
-
-
-    );
-}
-// import React, { useState } from 'react'
-// import { Link } from 'react-router-dom';
-// // import firebase from "./firebase"
-// import "firebase/firestore";
-// import { TextField } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/styles";
+// import React from 'react'
+// import {
+//     task,
+//     toggleTask,
+//     deleteTask
+// } from '../private/Privateannouncement'
 // import Grid from '@material-ui/core/Grid';
-// import Container from '@material-ui/core/Container';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import Avatar from '@material-ui/core/Avatar';
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+// import { Typography, IconButton } from "@material-ui/core";
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import { makeStyles } from '@material-ui/core/styles';
+
+// export default function Privatehome() {
 
 
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         display: "flex",
-//         flexDirection: "column",
-//         height: "500px",
-//         justifyContent: "center",
-//         alignItems: "center",
-
-//     },
-//     avatar: {
-//         margin: theme.spacing(1),
-//         backgroundColor: theme.palette.secondary.main,
-//     },
-
-//     large: {
-//         color: 'blue',
-//         height: '170px',
-//         width: '170px',
-//     }
-// }));
-// export default function Privateaccountprofile() {
+//     const useStyles = makeStyles({
+//         root: {
+//           maxwidth: 750,
+//           alignItems: 'center',
+//           display: 'flex',
+      
+//         },
+      
+      
+//         pos: {
+//           marginBottom: 12,
+//         },
+//         taskDone: {
+//           textDecoration: "line-through"
+//         }
+//       });
+      
+      
+      
+      
 
 //     const classes = useStyles();
 
-//     const [values, setvalues] = useState({
-
-//         FullName: "",
-//         contact: "",
-//         studentID: "",
-
-//         email: "",
-//         password: "",
-//         confirmpassword: "",
-//     });
-
-
-//     const handleChange = (prop) => (e) => {
-//         setvalues({ ...values, [prop]: e.target.value });
-//     };
-
-
 
 //     return (
-//         <Container component="main" maxWidth="xs">
-//             <CssBaseline />
-//             <div className={classes.root}>
-//                 <Avatar className={classes.large}>
-//                     <AccountCircleIcon style={{ fontSize: 180 }} />
-//                 </Avatar>
-
-
-//                 <Link to='/login' >
-//                     Edit
-//                 </Link>
-
-//                 <Grid container spacing={2} align="center">
-//                     <Grid item xs={12}>
-//                         <TextField
-//                             id="FullName"
-//                             required
-//                             label="Full Name"
-//                             variant="outlined"
-//                             value={values.firstName}
-//                             onChange={handleChange("FullName")}               
-//                             disabled
-//                             size="small"
-//                         />
-
-//                     </Grid>
-
-
-
-//                     <Grid item xs={12} align="center">
-//                         <TextField
-//                             id="StudentID"
-//                             type="number"
-//                             required
-//                             label="Student ID"
-//                             variant="outlined"
-//                             value={values.studentID}
-//                             onChange={handleChange("studentID")}                         
-//                             disabled
-//                             size="small"
-//                         />
-//                     </Grid>
-//                     <Grid item xs={12} align="center">
-//                         <TextField
-//                             id="PhoneNumber"
-//                             type="number"
-//                             required
-//                             label="Phone Number"
-//                             variant="outlined"
-//                             value={values.studentID}
-//                             onChange={handleChange("phoneNumber")}                           
-//                             disabled
-//                             size="small"
-//                         />
-
-
-//                     </Grid>
-//                     <Grid item xs={12} align="center">
-//                         <TextField
-//                             id="email"
-//                             required
-//                             label="email"
-//                             variant="outlined"
-//                             value={values.email}
-//                             onChange={handleChange("email")}                            
-//                             disabled
-//                             size="small"
-//                         />
-
-//                     </Grid>
-//                     <Grid item xs={12} align="center">
-//                         <TextField
-//                             id="password"
-//                             type="password"
-//                             required
-//                             label="password"
-//                             variant="outlined"
-//                             value={values.password}
-//                             onChange={handleChange("password")}                           
-//                             disabled
-//                             size="small"
-//                         />
-
-//                     </Grid>
-
-//                 </Grid>
-
-//             </div>
-//         </Container>
-
-
+//         <div className="HomeAnnouncement">
+//             <Grid container justify="center" alignItems="center">
+//                 <Typography
+//                     key={task.id}
+//                     variant="h6"
+//                     onClick={() => toggleTask(task.id, task.status)}
+//                     className={
+//                         task.status === "done" ? classes.taskDone : null
+//                     }
+//                 >
+//                     {task.task}
+//                 </Typography>
+//                 <IconButton onClick={() => deleteTask(task.id)}>
+//                     <DeleteIcon />
+//                 </IconButton>
+//             </Grid>
+//         </div>
 //     )
 // }
+
+
+
+
+import React from 'react'
+
+export default function Privatehome() {
+    return (
+        <div>
+            <h>home home</h>
+        </div>
+    )
+}

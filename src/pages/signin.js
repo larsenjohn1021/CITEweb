@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import firebase from "../firebase"
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { TextField } from "@material-ui/core";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -20,6 +20,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import citelogoT from '../images/citelogoT.png';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import backg from '../images/maxresdefault.jpg';
+
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -27,6 +29,7 @@ function Alert(props) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    // backgroundImage: backg,
     display: "flex",
     flexDirection: "column",
     height: "650px",
@@ -126,12 +129,18 @@ export default function Login() {
 
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.root}>
+  //  <img src={backg}  />
+    <Container component="main" maxWidth="xs"> 
+      <div className={classes.root} >
+        
         <img src={citelogoT} alt="" height="160px" />
-        <h3 align="center" >COLLEGE OF INFORMATION AND TECHNOLOGY AND ENGINEERING</h3>
 
-        <Grid container spacing={2} align="center">
+        <Grid container spacing={2} align="center" justify="center">
+        <Grid item>
+        <Typography variant="h6" color="textPrimary">
+        COLLEGE OF INFORMATION AND TECHNOLOGY AND ENGINEERING
+        </Typography>
+      </Grid>
           <Grid item xs={12} >
             <TextField className={(classes.margin, classes.textField)}
               id="User"
@@ -194,15 +203,16 @@ export default function Login() {
             </Button>
           </Grid>
 
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <p>Create an Account?
               <Link to='/register' style={{ textDecoration: 'none', color: 'blue' }}>
                 SIGN UP
               </Link></p>
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
 
     </Container >
+    
   )
 }
