@@ -22,7 +22,7 @@ import CardContent from '@material-ui/core/CardContent';
 // import { toggleTask, deleteTask } from './private/Privatehome'
 
 import Dialog from '@material-ui/core/Dialog';
-// import DialogActions from '@material-ui/core/DialogActions';
+import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
@@ -103,7 +103,8 @@ export default function Privateannouncement() {
   // const classespaper = useStylespaper();
 
   // const [selectedImg, setSelectedImg] = useState(null);
-  
+
+
 
   const [open, setOpen] = React.useState(false);
 
@@ -118,10 +119,7 @@ export default function Privateannouncement() {
 
 
 
-
-
-
-  const [del, setDel] = useState(true);
+  const [del, setDel] = useState(false);
 
   const delHandler = () => {
     // if agree === true, it will be set to false
@@ -133,6 +131,21 @@ export default function Privateannouncement() {
 
   }
 
+
+
+
+
+  const [delll, setDelll] = React.useState(false);
+
+  const deleteHandler = () => {
+    // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+
+    setDelll(!delll);
+
+    // Don't miss the exclamation mark
+
+  }
 
 
 
@@ -286,63 +299,23 @@ export default function Privateannouncement() {
             keepMounted
             onClose={handleClose}
             aria-labelledby="alert-dialog-slide-title"
-            aria-describedby="alert-dialog-slide-description"
-          >
+            aria-describedby="alert-dialog-slide-description">
             <DialogTitle id="alert-dialog-slide-title">{"Create Announcement"}</DialogTitle>
             <DialogContent>
 
+              <UploadForm />
 
-
-              {/* <div className={classespaper.root}>
-
-                <Paper elevation={3} />
-              </div> */}
-
-
-              {/* <Button
-                onClick={handleClose}
-                color="primary">
-                <  AddAPhotoIcon style={{ fontSize: 28 }} />
-
-
-              </Button> */}
-
-           
-<UploadForm/>
-
-
-              {/* <TextField className={(classes.margin, classes.textField)}
-                id="postAnnc"
-                label="Description"
-                variant="outlined"
-                value={payload.task}
-                onChange={handleChange}
-             
-
-              /> */}
-
-
-
-
-              {/* <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
-          </DialogContentText> */}
             </DialogContent>
-            {/* <DialogActions>
-              <Button
-                onClick={addTask}
-                color="primary">
-                < PostAddIcon style={{ fontSize: 28 }} />
-                Create
 
-              </Button>
+          </Dialog>
 
 
- */}
 
 
-              {/* <Button
+
+
+
+          {/* <Button
                 onClick={handleClose}
                 color="primary">
                 <  CancelIcon style={{ fontSize: 28 }} />
@@ -352,21 +325,23 @@ export default function Privateannouncement() {
 
 
 
-              
+          {/* 
+<DialogActions>
+<Button
+              onClick={handleClose}
+              color="primary">
+              <  CloseIcon style={{ fontSize: 28 }} />
+              Close
+
+            </Button>
+              </DialogActions> */}
 
 
-              <Button
-                onClick={handleClose}
-                color="primary">
-                <  CloseIcon style={{ fontSize: 28 }} />
-                Close
-
-              </Button>
 
 
 
-            {/* </DialogActions> */}
-          </Dialog>
+          {/* </DialogActions> */}
+
 
 
 
@@ -385,31 +360,67 @@ export default function Privateannouncement() {
                 onClick={handleClickOpen}
                 fontSize="100vh"
                 style={{ height: '250px', width: '400px', fontSize: "5vh" }}
-                id="CreateAnn" s
+                id="CreateAnn"
                 variant="contained"
                 color="secondary">
                 Create Announcement <QueueIcon style={{ fontSize: 100 }}
                 />
               </Button>
             </Grid>
+
+
+
+
+
+
+
+
+{/* DELETEBUTTON  DELETEBUTTON DELETEBUTTON DELETEBUTTON DELETEBUTTON DELETEBUTTON */}
+
+
+            <Dialog
+              open={delll}
+              TransitionComponent={Transition}
+              keepMounted
+              onClose={deleteHandler}
+              aria-labelledby="alert-dialog-slide-title"
+              aria-describedby="alert-dialog-slide-description"
+            >
+              <DialogTitle id="alert-dialog-slide-title2">{"Delete Announcement"}</DialogTitle>
+              <DialogContent>
+
+                
+                
+
+
+
+
+
+
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={deleteHandler}
+                  color="primary">
+                  <CloseIcon style={{ fontSize: 28 }} />
+                  Close
+
+                </Button>
+              </DialogActions>
+
+            </Dialog>
+
+
+
             <Grid item xs>
               <Button
-                style={{ height: '250px', width: '400px', fontSize: "5vh" }}
-                id="EditAnn"
-                variant="contained"
-                color="secondary">
-                Edit Announcement <EditIcon style={{ fontSize: 100 }}
-                />
-              </Button>
-            </Grid>
-            <Grid item xs>
-              <Button
+                onClick={deleteHandler}
                 style={{ height: '250px', width: '400px', fontSize: "5vh" }}
                 id="DeleteAnn"
-                onClick={delHandler}
                 variant="contained"
                 color="secondary">
                 Delete Announcement <DeleteIcon style={{ fontSize: 100 }}
+
                 />
               </Button>
             </Grid>

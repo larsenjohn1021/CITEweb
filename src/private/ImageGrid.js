@@ -6,14 +6,18 @@ const ImageGrid = ({ setSelectedImg }) => {
   const { docs } = useFirestore('images');
 
   return (
-    <div className="img-grid" maxwidth="300px">
+    <div className="img-grid">
       {docs && docs.map(doc => (
         <motion.div className="img-wrap" key={doc.id} 
           layout
-          whileHover={{ opacity: 1 }}s
+          position="fixed"
+          
+          whileHover={{ opacity: 1 }}
           onClick={() => setSelectedImg(doc.url)}
         >
           <motion.img src={doc.url} alt="uploaded pic"
+          width="400px"
+        
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}

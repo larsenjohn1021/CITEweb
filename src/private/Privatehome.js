@@ -76,7 +76,7 @@ export default function Privatehome() {
       return (
         <div className="App">
           <Title/>
-          <UploadForm />
+          {/* <UploadForm /> */}
           <ImageGrid setSelectedImg={setSelectedImg} />
           { selectedImg && (
             <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
