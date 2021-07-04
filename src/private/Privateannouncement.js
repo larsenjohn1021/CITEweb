@@ -7,7 +7,6 @@ import firebase from "../firebase"
 import Grid from '@material-ui/core/Grid';
 import {
   Button,
-  TextField,
   CircularProgress,
   Typography,
   IconButton
@@ -15,7 +14,6 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import QueueIcon from '@material-ui/icons/Queue';
 import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // import HomeAnnouncement from './private/Privatehome'
@@ -27,7 +25,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 // import PostAddIcon from '@material-ui/icons/PostAdd';
-import CancelIcon from '@material-ui/icons/Cancel';
+// import CancelIcon from '@material-ui/icons/Cancel';
 // import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 // import Paper from '@material-ui/core/Paper';
 // import MuiAlert from '@material-ui/lab/Alert';
