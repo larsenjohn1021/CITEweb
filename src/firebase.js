@@ -1,6 +1,8 @@
-import firebase from "firebase";
-
-
+import firebase from 'firebase/app';
+import 'firebase/storage';
+import 'firebase/firestore';
+import 'firebase/analytics'
+import 'firebase/auth'
 
 var firebaseConfig = {
   apiKey: "AIzaSyBgTTWf-fejXH_sz7iOPjqYRZjUqojgp6g",
@@ -16,8 +18,14 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-export default firebase;
 
+
+const projectStorage = firebase.storage();
+  const projectFirestore = firebase.firestore();
+  const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+
+export default firebase;
+export { projectStorage, projectFirestore, timestamp};
 
 
 

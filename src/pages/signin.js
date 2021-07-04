@@ -20,7 +20,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import citelogoT from '../images/citelogoT.png';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import backg from '../images/maxresdefault.jpg';
+
 
 
 function Alert(props) {

@@ -60,12 +60,29 @@
 
 
 
-import React from 'react'
+import React,{useState} from 'react'
+// import ProgressBar from '../private/ProgressBar';
+import Title from '../private/Title';
+import UploadForm from '../private/Uploadform';
+import ImageGrid from '../private/ImageGrid';
+import Modal from '../private/Modal';
+
 
 export default function Privatehome() {
-    return (
-        <div>
-            <h>home home</h>
+ 
+   
+      const [selectedImg, setSelectedImg] = useState(null);
+    
+      return (
+        <div className="App">
+          <Title/>
+          <UploadForm />
+          <ImageGrid setSelectedImg={setSelectedImg} />
+          { selectedImg && (
+            <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+          )}
         </div>
-    )
-}
+      );
+    }
+    
+  
